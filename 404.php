@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina nao encontrada</title>
+  <meta charset="UTF-8">
+  <title>404</title>
+  <link rel="stylesheet" href="css/index.css">
+   <!-- Adicionando Font Awesome -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    pagina que vc tentou acessar nao foi possivel encontra-la
+  <?php include 'assets/complementos/cabecalho.php'; ?>
+  
+  <div class="container">
+    <h1>pagina nao encontrada</h1>
+  </div>
+
+  <?php include 'assets/complementos/rodape.php'; ?>
 </body>
 </html>
+
+    
