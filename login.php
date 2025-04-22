@@ -27,7 +27,7 @@ if(isset($_POST['submit'])) {
         // Se o usuario e a senha der ok chama a tela bem vindo
         if ($row['senha']===$pass) {
             $_SESSION['user']=$user;
-            header(header: "Location: home.php"); // Redirecionar para a página Bem-Vindo
+            header(header: "Location: index.php"); // Redirecionar para a página Bem-Vindo
             exit();
         } else {
             $error = "Senha Incorreta.";
