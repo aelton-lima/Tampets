@@ -7,7 +7,7 @@ if(isset($_POST['submit'])) {
     $pass = $_POST['pass'];
  
     // Envia sinal para o banco
-    $conn = new mysqli (hostname: "localhost", username: "root", password: "", database: "db_tampets");
+    $conn = new mysqli (hostname: "10.62.52.55", username: "userTest", password: "admin123", database: "bancod_tampets");
  
     // Caso não conecte ao banco da uma mensagem de erro
     if($conn->connect_error){
@@ -15,7 +15,7 @@ if(isset($_POST['submit'])) {
     }
  
     // Buscar na tabela a coluna e "segura" o user para analise de situação
-    $stmt = $conn->prepare("SELECT * FROM cliente WHERE usuario = ?");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE nome = ?");
     $stmt->bind_param("s", $user);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -40,7 +40,6 @@ if(isset($_POST['submit'])) {
         $stmt->close();
         $conn->close();
 }  
- 
 ?>
  
 <!DOCTYPE html>
@@ -53,17 +52,7 @@ if(isset($_POST['submit'])) {
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <nav>
-    <div class="logo">Tampets</div>
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i>Início</a></li>
-      <li><a href="sobre.html"><i class="fas fa-info-circle"></i>Sobre</a></li>
-      <li><a href= "pontos_coleta.html"><i class="fa fa-map-signs"></i>Pontos de Coleta</a></li>
-      <li><a href="ajudar.html"><i class="fas fa-hand-holding-heart"></i>Como Ajudar</a></li>
-      <li><a href="contato.html"><i class="fas fa-envelope"></i>Contato</a></li>
-      <li><a href="login.php"><i class="fas fa-envelope"></i>Login</a></li>
-    </ul>
-  </nav>
+    <?php include 'assets/complementos/cabecalho.php'; ?>
 
   <div class="container">
         <h1>Login</h1>
@@ -90,9 +79,7 @@ if(isset($_POST['submit'])) {
             </form>
     </div>
 
-  <footer>
-    © 2025 Tampets Sorocaba. Todos os direitos reservados.
-  </footer>
+    <?php include 'assets/complementos/rodape.php'; ?>
 </body>
 </html>
 
