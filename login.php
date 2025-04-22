@@ -46,12 +46,26 @@ if(isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoginTampets</title>
+  <meta charset="UTF-8">
+  <title>Início | Tampets</title>
+  <link rel="stylesheet" href="css/index.css">
+   <!-- Adicionando Font Awesome -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+  <nav>
+    <div class="logo">Tampets</div>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i>Início</a></li>
+      <li><a href="sobre.html"><i class="fas fa-info-circle"></i>Sobre</a></li>
+      <li><a href= "pontos_coleta.html"><i class="fa fa-map-signs"></i>Pontos de Coleta</a></li>
+      <li><a href="ajudar.html"><i class="fas fa-hand-holding-heart"></i>Como Ajudar</a></li>
+      <li><a href="contato.html"><i class="fas fa-envelope"></i>Contato</a></li>
+      <li><a href="login.php"><i class="fas fa-envelope"></i>Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
         <h1>Login</h1>
         <?php if (isset($error)){ ?>
             <p class="error"><?php echo $error; ?></p>
@@ -75,6 +89,12 @@ if(isset($_POST['submit'])) {
                 </div>
             </form>
     </div>
+
+  <footer>
+    © 2025 Tampets Sorocaba. Todos os direitos reservados.
+  </footer>
 </body>
 </html>
+
+    
  
