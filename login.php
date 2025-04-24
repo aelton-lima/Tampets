@@ -7,7 +7,7 @@ if(isset($_POST['submit'])) {
     $pass = $_POST['pass'];
  
     // Envia sinal para o banco
-    $conn = new mysqli (hostname: "10.62.52.55", username: "userTest", password: "admin123", database: "bancod_tampets");
+    $conn = new mysqli (hostname: "localhost", username: "root", password: "", database: "db_tampets");
  
     // Caso não conecte ao banco da uma mensagem de erro
     if($conn->connect_error){
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])) {
         // Se o usuario e a senha der ok chama a tela bem vindo
         if ($row['senha']===$pass) {
             $_SESSION['user']=$user;
-            header(header: "Location: index.php"); // Redirecionar para a página Bem-Vindo
+            header(header: "Location: painel_adm.php"); // Redirecionar para a página Bem-Vindo
             exit();
         } else {
             $error = "Senha Incorreta.";
