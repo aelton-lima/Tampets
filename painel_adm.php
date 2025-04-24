@@ -11,6 +11,9 @@ validar_sessao();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAINEL ADM</title>
+    <link rel="stylesheet" href="css/pagina.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
     <h1>PAINEL ADM</h1>

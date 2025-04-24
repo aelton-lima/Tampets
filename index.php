@@ -10,7 +10,9 @@
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <?php include 'assets/complementos/cabecalho.php'; ?>
+  <?php 
+    include 'assets/complementos/cabecalho.php';
+  ?>
   
   <div class="container">
     <h1>Bem-vindo à Tampets</h1>
