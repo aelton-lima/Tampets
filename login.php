@@ -7,7 +7,7 @@ if(isset($_POST['submit'])) {
     $pass = $_POST['pass'];
  
     // Envia sinal para o banco
-    $conn = new mysqli (hostname: "localhost", username: "root", password: "", database: "bd_tampets");
+    $conn = new mysqli (hostname: "localhost", username: "root", password: "", database: "db_tampets");
  
     // Caso não conecte ao banco da uma mensagem de erro
     if($conn->connect_error){
