@@ -14,5 +14,14 @@ validar_sessao();
 </head>
 <body>
     <h1>PAINEL ADM</h1>
+
+    <?php   
+        // Verifica se o usuário é admin ou visitante
+        if ($_SESSION['user']['nivel'] == 1) {
+            echo "Bem-vindo Adm";
+        } else {
+            echo "Olá visitante";
+        }
+    ?>
 </body>
 </html>
