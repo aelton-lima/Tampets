@@ -7,7 +7,7 @@ if(isset($_POST['submit'])) {
     $pass = $_POST['pass'];
  
     // Envia sinal para o banco
-    $conn = new mysqli (hostname: "localhost", username: "root", password: "", database: "db_tampets");
+    $conn = new mysqli (hostname: "localhost", username: "root", password: "", database: "bd_tampets");
  
     // Caso não conecte ao banco da uma mensagem de erro
     if($conn->connect_error){
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])) {
    
         // Se o usuario e a senha der ok chama a tela bem vindo
         if ($row['senha']===$pass) {
-            $_SESSION['user']=$user;
+            $_SESSION['user'] = array('id'=>$row['id_user'], 'nome'=>$row['nome'], 'nivel'=>$row['id_nivel']);
             header(header: "Location: painel_adm.php"); // Redirecionar para a página Bem-Vindo
             exit();
         } else {
@@ -37,8 +37,8 @@ if(isset($_POST['submit'])) {
             $error = "Usuário não encontrado";
     }
  
-        $stmt->close();
-        $conn->close();
+    $stmt->close();
+    $conn->close();
 }  
 ?>
  
