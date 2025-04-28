@@ -36,7 +36,7 @@ function cadastrarUsuario($nome,$senha,$id_nivel) {
     } 
 }
 
-function cadastrarNiveis($nome, $id_nivel) {
+function cadastrarNiveis($nome) {
     $conn = $GLOBALS['conn'];
     $sql = "INSERT INTO niveis (nome) VALUES ('$nome')";
 
