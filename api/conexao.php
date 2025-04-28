@@ -5,7 +5,7 @@
 $serverName = "localhost";
 $userName = "root";
 $password = "";
-$dabatase = "db_tampets";
+$dabatase = "bd_tampets";
 
 // Criar a conexão
 $conn = new mysqli($serverName, $userName, $password, $dabatase);
