@@ -1,12 +1,12 @@
 <?php
-include 'conexao.php';
+include_once('conexao.php');
 
 function listar_cidades() {
     $conn = $GLOBALS['conn'];
-    $sql = "SELECT * FROM cidades";
+    $sql = "SELECT * FROM cidades ORDER BY nome";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $res = $stmt->get_result()->fetch_assoc();
+    $res = $stmt->get_result();
     return $res;
 }
 function listar_cidade_id($id_cidade) {
@@ -34,7 +34,7 @@ function listar_locais() {
     $sql = "SELECT * FROM locais";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $res = $stmt->get_result()->fetch_assoc();
+    $res = $stmt->get_result();
     return $res;
 }
 
@@ -43,7 +43,7 @@ function listar_niveis() {
     $sql = "SELECT * FROM niveis";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $res = $stmt->get_result()->fetch_assoc();
+    $res = $stmt->get_result();
     return $res;
 }
 
@@ -52,7 +52,7 @@ function listar_usuarios() {
     $sql = "SELECT * FROM users";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $res = $stmt->get_result()->fetch_assoc();
+    $res = $stmt->get_result();
     return $res;
 }
 ?>

@@ -1,5 +1,6 @@
 <?php
-include("conexao.php");
+include_once('conexao.php');
+
 
 function cadastrarCidade($nome) {
     $conn = $GLOBALS['conn'];

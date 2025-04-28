@@ -1,18 +1,13 @@
 <?php
-include("api/conexao.php");
+include("api/cadastro.php");
+include 'api/sessao.php';
+
+validar_adm();
+
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
-        $sql = "INSERT INTO niveis (nome) VALUES ('$nome')";
-    
-    if ($conn->query($sql) === TRUE) {
-        echo "Cadastrado com Sucesso!!";
-    } else {
-        echo "Erro ao Cadastrar: " .$conn->error;
-    }
-
-    //fecha a comunicação
-    $conn->close();
+    cadastrarNiveis($nome);
 }
 ?>
 
