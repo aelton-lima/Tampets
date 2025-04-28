@@ -1,45 +1,11 @@
 <?php
-session_start();
- 
-// Solicita o usuario e a senha para entrar
+include 'api/autenticacao.php';
+
 if(isset($_POST['submit'])) {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
- 
-    // Envia sinal para o banco
-    $conn = new mysqli (hostname: "localhost", username: "root", password: "", database: "db_tampets");
- 
-    // Caso não conecte ao banco da uma mensagem de erro
-    if($conn->connect_error){
-        die("Falha na conexão com o Banco de Dados: ".$conn->connect_error);
-    }
- 
-    // Buscar na tabela a coluna e "segura" o user para analise de situação
-    $stmt = $conn->prepare("SELECT * FROM users WHERE nome = ?");
-    $stmt->bind_param("s", $user);
-    $stmt->execute();
-    $result = $stmt->get_result();
- 
-    // Número de objetos tem duas tratativas: Uma para encontrado e outra para não encontrado
-    if($result->num_rows > 0) {
-        $row = $result ->fetch_assoc();
-   
-        // Se o usuario e a senha der ok chama a tela bem vindo
-        if ($row['senha']===$pass) {
-            $_SESSION['user'] = array('id'=>$row['id_user'], 'nome'=>$row['nome'], 'nivel'=>$row['id_nivel']);
-            header(header: "Location: painel_adm.php"); // Redirecionar para a página Bem-Vindo
-            exit();
-        } else {
-            $error = "Senha Incorreta.";
-        }
-   
-    } else {
-            $error = "Usuário não encontrado";
-    }
- 
-    $stmt->close();
-    $conn->close();
-}  
+    login($user,$pass);
+}
 ?>
  
 <!DOCTYPE html>
