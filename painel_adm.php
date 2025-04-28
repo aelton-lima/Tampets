@@ -14,9 +14,14 @@ validar_sessao();
     <link rel="stylesheet" href="css/pagina.css">
     <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="stylesheet" href="css/footer.css">
+    <!-- Adicionando Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <h1>PAINEL ADM</h1>
+  <?php 
+    include 'assets/complementos/cabecalho.php';
+  ?>
 
     <?php   
         // Verifica se o usuário é admin ou visitante
@@ -26,5 +31,7 @@ validar_sessao();
             echo "Olá visitante";
         }
     ?>
+
+    <?php include 'assets/complementos/rodape.php'; ?>
 </body>
 </html>
