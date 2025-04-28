@@ -36,4 +36,16 @@ function cadastrarUsuario($nome,$senha,$id_nivel) {
     } 
 }
 
+function cadastrarNiveis($nome, $id_nivel) {
+    $conn = $GLOBALS['conn'];
+    $sql = "INSERT INTO niveis (nome) VALUES ('$nome')";
+
+    if ($conn->query($sql) === TRUE) {
+        return "Usuario cadastrado com sucesso!";
+    } else {
+        return "Erro ao cadastrar: " .$conn->error;
+        
+    }
+}
+
 ?>
