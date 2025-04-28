@@ -1,7 +1,7 @@
 <?php
 
 include 'api/sessao.php';
-validar_sessao();
+validar_adm();
 
 include("api/conexao.php");
 
