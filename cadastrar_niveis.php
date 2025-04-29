@@ -12,7 +12,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!-- Formularios HTML -->
-
 <form method="POST" action="cadastrar_niveis.php">
     <label>Nome:</label>
     <input type="text" name="nome" required>

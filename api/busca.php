@@ -65,4 +65,24 @@ function listar_usuarios() {
     $res = $stmt->get_result();
     return $res;
 }
+
+function listar_id() {
+    $conn = $GLOBALS['conn'];
+    $sql = "SELECT * FROM locais";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    return $res;
+}
+function listar_coletas() {
+    $conn = $GLOBALS['conn'];
+    $sql = "SELECT * FROM coletas";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    return $res;
+}
+function cont_coletas_mes() {
+    
+}
 ?>
