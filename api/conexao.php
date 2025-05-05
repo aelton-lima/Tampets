@@ -2,10 +2,10 @@
 // Esta é a rotina para se efetuar a conexao com o DB
 
 // Dados para efetuar a conexão
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$dabatase = "bd_tampets";
+$serverName = "10.62.56.59";
+$userName = "tampets";
+$password = "@admin123";
+$dabatase = "db_tampets";
 
 // Criar a conexão
 $conn = new mysqli($serverName, $userName, $password, $dabatase);
