@@ -1,7 +1,8 @@
 <?php
 include("api/cadastro.php");
 include("api/busca.php");
-include 'api/sessao.php';
+include('api/sessao.php');
+include('assets/complementos/cabecalho.php');
 
 validar_adm();
 $result = listar_niveis();
@@ -36,3 +37,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <input type="submit" value="Cadastrar">
 </form>
+
+<?php include 'assets/complementos/rodape.php'; ?>
