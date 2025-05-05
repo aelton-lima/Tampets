@@ -49,4 +49,16 @@ function cadastrarNiveis($nome) {
     }
 }
 
+function cadastrarColeta($quantidade, $id_local, $id_user) {
+    $conn = $GLOBALS['conn'];
+    $sql = "INSERT INTO coletas (quantidade, id_local, id_user) 
+            VALUES ('$quantidade', '$id_local', '$id_user')";
+
+    if ($conn->query($sql) === TRUE) {
+        return "Local cadastrado com sucesso!";
+    } else {
+        return "Erro ao cadastrar: " . $conn->error;
+    }
+}
+
 ?>

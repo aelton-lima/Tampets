@@ -18,7 +18,7 @@ function login($user, $pass) {
         if ($row['senha']===$pass) {
             include 'sessao.php';
             registrar_usuario($row);
-            header(header: "Location: painel_adm.php"); // Redirecionar para a página Bem-Vindo
+            header(header: "Location: painel_adm"); // Redirecionar para a página Bem-Vindo
             exit();
         } else {
             $error = "Senha Incorreta.";

@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 function validar_sessao() {
     if (!isset($_SESSION['user'])) {
-        header('Location: login.php');
+        header('Location: login');
     }
 }
 
@@ -17,7 +17,7 @@ function encerrar_sessao(){
 function validar_adm() {
     validar_sessao();
     if ($_SESSION['user']['nivel'] != 1) {
-        header('Location: painel_adm.php');
+        header('Location: painel_adm');
     }
 }
 
