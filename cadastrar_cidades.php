@@ -2,7 +2,7 @@
 
 include 'api/sessao.php';
 validar_adm();
-
+include ('assets/complementos/cabecalho.php');
 include("api/cadastro.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,3 +19,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <br><br>
 <input type="submit" value="Cadastrar">
 </form>
+
+<?php include 'assets/complementos/rodape.php'; ?>

@@ -1,7 +1,7 @@
 <?php
 include("api/cadastro.php");
-include 'api/sessao.php';
-
+include ('api/sessao.php');
+include ('assets/complementos/cabecalho.php');
 validar_adm();
 
 
@@ -17,3 +17,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" name="nome" required>
     <input type="submit" value="Cadastrar">
 </form>
+
+<?php include 'assets/complementos/rodape.php'; ?>
