@@ -83,6 +83,6 @@ function listar_coletas() {
     return $res;
 }
 function cont_coletas_mes() {
-    
+
 }
 ?>
