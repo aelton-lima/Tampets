@@ -2,9 +2,9 @@
 // Esta é a rotina para se efetuar a conexao com o DB
 
 // Dados para efetuar a conexão
-$serverName = "10.62.56.59";
-$userName = "tampets";
-$password = "@admin123";
+$serverName = "localhost";
+$userName = "root";
+$password = "";
 $dabatase = "db_tampets";
 
 // Criar a conexão

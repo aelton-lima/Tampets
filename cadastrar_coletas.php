@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST" action="cadastrar_coletas.php" id="form">
        
         <label>Quantidade: </label>
-        <input type="number" name="quantidade" required placeholder="Digite a quantidade:">
+        <input type="number" name="quantidade" required placeholder="Digite a quantidade em (kg):">
         <br><br>
 
         <select name="id_local" required>
