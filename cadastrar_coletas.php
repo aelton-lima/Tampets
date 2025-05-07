@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="">Selecione o Local</option>
             <?php
                 while($row = $listaLocais -> fetch_assoc()) {
-                    echo "<option value='".$row['id_local'],"'>".$row['bairro']."</option>";
+                    echo "<option value='".$row['id_local'],"'>".$row['nome'],' - ',$row['bairro']."</option>";
                 }
             ?>
         </select><br><br>

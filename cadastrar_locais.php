@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <br><br>
 
         <label>Rua: </label>
-        <input type="text" name="rua" required placeholder="Digite o nome da rua:">
+        <input type="text" name="rua" placeholder="Digite o nome da rua:">
         <br><br>
 
         <label>Bairro: </label>
@@ -40,11 +40,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <br><br>
 
         <label>Número: </label>
-        <input type="number" name="numero" required placeholder="Digite o número do local:">
+        <input type="number" name="numero" placeholder="Digite o número do local:">
         <br><br>
 
         <label>CEP: </label>
-        <input type="number" name="cep" required placeholder="Digite o CEP:">
+        <input type="number" name="cep" placeholder="Digite o CEP:">
         <br><br>
 
         <label>Telefone: </label>
