@@ -32,7 +32,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <br><br>
 
         <label>Rua: </label>
-        <input type="text" name="rua" placeholder="Digite o nome da rua:">
+
+        <input type="text" name="rua"  placeholder="Digite o nome da rua:">
         <br><br>
 
         <label>Bairro: </label>

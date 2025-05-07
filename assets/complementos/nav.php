@@ -10,7 +10,7 @@
         include_once('api/sessao.php');
         if(isset($_SESSION['user'])) {
           echo '<li><a href="/tampets/logout"><i class="fas fa-user"></i> Logout</a></li>';
-          echo '<li><a href="/tampets/painel_adm"><i class="fas fa-user"></i> Painel</a></li>';
+          echo '<li><a href="/tampets/painel_adm"><i class="fas fa-user"></i> Painel ADM</a></li>';
         } else {
           echo '<li><a href="/tampets/login"><i class="fas fa-user"></i> Login</a></li>';
         }

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/tampets/css/pontos.css">
 <?php 
-    include 'assets/complementos/cabecalho.php';
+    include ('assets/complementos/cabecalho.php');
     include ('api/busca.php');
 
     $listaLocais = listar_locais_cidade($_GET['id']);

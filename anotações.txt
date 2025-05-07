@@ -1,7 +1,7 @@
 função que conte:
                                     -> cidade
-	    --qtd total de kg arrecadado -> geral
-        -> local
+	    --qtd total de kg arrecadado-> geral
+                                    -> local
          
 
     --td de locais por cidade
