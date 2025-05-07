@@ -20,8 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- Formulario HTML -->
- 
+<!-- Formulario HTML do cadastro-->
 <div id="container">
     <form method="POST" action="cadastrar_coletas.php" id="form">
        
