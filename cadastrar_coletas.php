@@ -32,9 +32,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <select name="id_cidade" id="cidade" onchange="atualizarLocais()" required>
             <option value="">Selecione uma Cidade</option>
             <?php
-
-                while($row = $listaLocais -> fetch_assoc()) {
-                    echo "<option value='".$row['id_local'],"'>".$row['nome'],' - ',$row['bairro']."</option>";
+                // Exibe as cidades
+                while($row = $listaCidades->fetch_assoc()) {
+                    echo "<option value='".$row['id_cidade']."'>".$row['nome']."</option>";
                 }
             ?>
         </select><br><br>
