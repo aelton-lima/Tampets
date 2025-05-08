@@ -9,6 +9,7 @@ function listar_cidades() {
     $res = $stmt->get_result();
     return $res;
 }
+
 function listar_cidade_id($id_cidade) {
     $conn = $GLOBALS['conn'];
     $sql = "SELECT * FROM cidades WHERE id_cidade = ?";

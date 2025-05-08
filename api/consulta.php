@@ -33,11 +33,31 @@ function getQuantidadePorMes($conn) {
 // Chama a função e obtém os dados
 $coletasPorMes = getQuantidadePorMes($conn);
 
+$totalGeral = 0;
+foreach ($coletasPorMes as $coleta) {
+    $totalGeral += $coleta['total'];
+}
+
 // Exibe os dados
 //echo "<pre>";
 //print_r($coletasPorMes);
 //echo "</pre>";
 
 // Fecha a conexão com o banco de dados
+function listar_cidades_com_total_pontos() {
+    global $conn;
+
+    $sql = "SELECT 
+                c.id_cidade, 
+                c.nome, 
+                COUNT(l.id_local) AS total_pontos
+            FROM cidades c
+            LEFT JOIN locais l ON c.id_cidade = l.id_cidade
+            GROUP BY c.id_cidade, c.nome
+            ORDER BY c.nome";
+
+    return mysqli_query($conn, $sql);
+}
+
 mysqli_close($conn);
 ?>
