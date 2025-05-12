@@ -59,5 +59,33 @@ function listar_cidades_com_total_pontos() {
     return mysqli_query($conn, $sql);
 }
 
+// Função para obter o total de cidades cadastradas
+function getTotalCidades($conn) {
+    $sql = "SELECT COUNT(*) AS total_cidades FROM cidades";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        die("Erro ao contar cidades: " . mysqli_error($conn));
+    }
+    $row = mysqli_fetch_assoc($result);
+    return $row['total_cidades'];
+}
+
+// Obtem o total de cidades
+$totalCidades = getTotalCidades($conn);
+
+// Função para obter o total de pontos de coleta (locais cadastrados)
+function getTotalLocais($conn) {
+    $sql = "SELECT COUNT(*) AS total_locais FROM locais";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        die("Erro ao contar locais: " . mysqli_error($conn));
+    }
+    $row = mysqli_fetch_assoc($result);
+    return $row['total_locais'];
+}
+
+// Obtem o total de locais (pontos de coleta)
+$totalLocais = getTotalLocais($conn);
+
 mysqli_close($conn);
 ?>

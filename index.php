@@ -22,6 +22,18 @@
             <td><?= htmlspecialchars($totalGeral) ?></td>
         </div>
 
+         <!-- Linha com total de cidades cadastradas -->
+        <div class="total-geral-row">
+            <td colspan="2">Total de Cidades Cadastradas:</td>
+            <td><?= htmlspecialchars($totalCidades) ?></td>
+        </div>
+
+        <!-- Linha com total de pontos de coleta -->
+        <div class="total-geral-row">
+            <td colspan="2">Total de Pontos de Coleta (Locais):</td>
+            <td><?= htmlspecialchars($totalLocais) ?></td>
+        </div>
+
         <div class="tabela-container">
             <table>
                 <thead>
