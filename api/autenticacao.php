@@ -1,5 +1,6 @@
 <?php
 include_once('conexao.php');
+include_once('sessao.php');
 
 function login($user, $pass) {
     $conn = $GLOBALS['conn'];
@@ -16,7 +17,6 @@ function login($user, $pass) {
    
         // Se o usuario e a senha der ok chama a tela bem vindo
         if ($row['senha']===$pass) {
-            include 'sessao.php';
             registrar_usuario($row);
             header(header: "Location: painel_adm"); // Redirecionar para a página Bem-Vindo
             exit();

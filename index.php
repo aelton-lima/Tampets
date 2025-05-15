@@ -1,65 +1,138 @@
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="/css/index.css">
+<script defer src="/js/index.js"></script>
 
-<?php 
-    include ("assets/complementos/cabecalho.php");
-    include ('api/consulta.php')
-?>
+<?php
+  include ("api/consulta.php");
+  include ("assets/complementos/cabecalho.php");
+
+  $totalCidades = getTotalCidades();
+  $totalLocais = getTotalLocais();
+
+  $coletaPorAno = getTotalColetaPorAno();
+  $rankingAno = getRankingCidadesAno();
   
-<div class="container">
-    <h1>Bem-vindo à Tampets</h1>
-    <p>Nosso site está no ar 🚀 Cuidando de vidas com amor e tampinhas.</p>
-    <img src="assets/tampets.jpg" alt="Logo da Tampets" style="max-width: 100%; border-radius: 12px;">
-</div>
+  $coletaPorMes = getTotalColetaPorMes();
+  $rankingMes = getRankingCidadesMes();
 
-<!DOCTYPE html>
-<html lang="pt-br">
-    <body>
-        <h2>Relatório de Coletas por Mês, Local e Cidade</h2>
+?>
 
-        <!-- Linha com total geral -->
-        <div class="total-geral-row">
-            <td colspan="2">Total Geral:</td>
-            <td><?= htmlspecialchars($totalGeral) ?></td>
-        </div>
+<section class="main-banner">
+  O Projeto TamPets coleta e recicla tampinhas plásticas e destina o valor arrecadado em benefício da causa animal de Sorocaba e Região.
+</section>
+      
+<section class="sections">
+  <div class="section aceitamos">
+    <strong>ACEITAMOS</strong><br><br>
+    Veja quais tipos de tampinhas nós aceitamos.<br><br>
+    <a href="ajudar">SAIBA MAIS</a>
+  </div>
 
-         <!-- Linha com total de cidades cadastradas -->
-        <div class="total-geral-row">
-            <td colspan="2">Total de Cidades Cadastradas:</td>
-            <td><?= htmlspecialchars($totalCidades) ?></td>
-        </div>
+  <div class="section quem-somos">
+    <strong>QUEM SOMOS</strong><br><br>
+    Conheça melhor o nosso projeto e a nossa missão.<br><br>
+    <a href="sobre">SAIBA MAIS</a>
+  </div>
 
-        <!-- Linha com total de pontos de coleta -->
-        <div class="total-geral-row">
-            <td colspan="2">Total de Pontos de Coleta (Locais):</td>
-            <td><?= htmlspecialchars($totalLocais) ?></td>
-        </div>
+  <div class="section pontos-coleta">
+    <strong>PONTOS DE COLETA</strong><br><br>
+    Encontre um ponto de coleta próximo a você.<br><br>
+    <a href="cidades">SAIBA MAIS</a>
+  </div>
 
-        <div class="tabela-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ranking</th>
-                        <th>Nome da Cidade</th>
-                        <th>Total de Coletas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (empty($coletasPorMes)) : ?>
-                        <tr><td colspan="6">Nenhum dado encontrado.</td></tr>
-                    <?php else : ?>
-                        <?php foreach ($coletasPorMes as $coleta) : ?>
-                            <tr>
-                                <td><?= htmlspecialchars($coleta['ranking']).'º' ?></td>
-                                <td><?= htmlspecialchars($coleta['cidade']) ?></td>
-                                <td><?= htmlspecialchars($coleta['total']) ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-        </div>
-    </body>
-</html>
+  <div class="section participe">
+    <strong>PARTICIPE</strong><br><br>
+    Saiba como doar tampinhas ou colaborar de outras formas.<br><br>
+    <a href="#">SAIBA MAIS</a>
+  </div>
+</section>
+      
+<section class="sections" id="contadores">
+  <div class="section contador-item">
+    <strong><span class="counter" data-target="<?= htmlspecialchars($totalCidades) ?>">0</span>+</strong><br><br>
+    Cidades Cadastradas<br><br>
+  </div>
+
+  <div class="section contador-item">
+    <strong><span class="counter" data-target="<?= htmlspecialchars($totalLocais) ?>">0</span>+</strong><br><br>
+    Pontos de Coletas<br><br>
+  </div>
+
+  <div class="section contador-item">
+    <strong><span class="counter" data-target="<?php echo $coletaPorAno; ?>">0</span>+</strong><br><br>
+    Total Arrecadado no Ano<br><br>
+  </div>
+
+  <div class="section contador-item">
+    <strong><span class="counter" data-target="<?php echo $coletaPorMes ?>">0</span>+</strong><br><br>
+    Total Arrecadado no Mês<br><br>
+  </div>
+  
+</section>
+
+
+<section class="tabela-container">
+  <h2>Ranking Anual</h2>
+  <div class="tabela-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>Cidade</th>
+          <th>Total Coletado</th>
+        </tr>
+      </thead>
+      <tbody id="corpo-tabela">
+        <?php 
+          if (empty($rankingAno)){
+            echo "<tr><td colspan='6'>Nenhum dado encontrado.</td></tr>";
+          }else{
+            foreach ($rankingAno as $coleta){
+              echo "
+                <tr>
+                  <td>".htmlspecialchars($coleta['ranking'])."º</td>
+                  <td>".htmlspecialchars($coleta['cidade'])."</td>
+                  <td class='counter' data-target='".htmlspecialchars($coleta['total'])."'>0</td>
+                </tr>";
+            }
+          }
+        ?>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="tabela-container">
+  <h2>Ranking Mensal</h2>
+  <div class="tabela-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>Cidade</th>
+          <th>Total Coletado</th>
+        </tr>
+      </thead>
+      <tbody id="corpo-tabela">
+        <?php 
+          if (empty($rankingMes)){
+            echo "<tr><td colspan='6'>Nenhum dado encontrado.</td></tr>";
+          }else{
+            foreach ($rankingMes as $coleta){
+              echo "
+                <tr>
+                  <td>".htmlspecialchars($coleta['ranking'])."º</td>
+                  <td>".htmlspecialchars($coleta['cidade'])."</td>
+                  <td class='counter' data-target='".htmlspecialchars($coleta['total'])."'>0</td>
+                </tr>";
+            }
+          }
+        ?>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
 
 <?php include 'assets/complementos/rodape.php'; ?>
-    

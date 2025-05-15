@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/cadastrar_locais.css">
+
 <?php
 include ("api/sessao.php");
 include ("api/cadastro.php");
@@ -24,6 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<main>
 <!-- Formulario HTML -->
 <div id="container">
     <form method="POST" action="cadastrar_locais.php" id="form">
@@ -32,7 +35,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <br><br>
 
         <label>Rua: </label>
-
         <input type="text" name="rua"  placeholder="Digite o nome da rua:">
         <br><br>
 
@@ -73,4 +75,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Cadastrar">
     </form>
 </div>
+</main>
+
 <?php include 'assets/complementos/rodape.php'; ?>

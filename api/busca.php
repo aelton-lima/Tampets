@@ -3,13 +3,17 @@ include_once('conexao.php');
 
 function listar_cidades() {
     $conn = $GLOBALS['conn'];
-    $sql = "SELECT * FROM cidades ORDER BY nome";
+    $sql = "SELECT c.id_cidade, c.nome, 
+                COUNT(l.id_local) AS total_pontos
+            FROM cidades c
+            LEFT JOIN locais l ON c.id_cidade = l.id_cidade
+            GROUP BY c.id_cidade, c.nome
+            ORDER BY c.nome";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $res = $stmt->get_result();
     return $res;
 }
-
 function listar_cidade_id($id_cidade) {
     $conn = $GLOBALS['conn'];
     $sql = "SELECT * FROM cidades WHERE id_cidade = ?";
@@ -83,7 +87,6 @@ function listar_coletas() {
     $res = $stmt->get_result();
     return $res;
 }
-function cont_coletas_mes() {
 
-}
+
 ?>

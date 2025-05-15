@@ -1,9 +1,11 @@
+<link rel="stylesheet" href="/css/cadastrar_coletas.css">
+<script defer src="/js/cadastrar_coletas.js"></script>
+
 <?php
 include_once("api/sessao.php");
 include_once("api/cadastro.php");
 include_once("api/busca.php");
 include_once("assets/complementos/cabecalho.php");
-include_once("assets/complementos/nav.php");
 
 validar_sessao();
 
@@ -15,11 +17,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $quantidade = $_POST['quantidade'];
     $id_local = $_POST['id_local'];
     $id_user = $_SESSION['user']['id'];
-
     cadastrarColeta( $quantidade, $id_local, $id_user);
 }
 ?>
 
+<main>
 <!-- Formulario HTML do cadastro-->
 <div id="container">
     <form method="POST" action="cadastrar_coletas.php" id="form">
@@ -43,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="local-container" style="display:none;">
             <label for="local">Selecione o Local:</label>
             <select name="id_local" id="local" required>
-                <option value="">Selecione o Local</option>
+                <option value="">Selecione o Local</option>z
                 <?php
                     // Exibe todos os locais inicialmente
                     while($row = $listaLocais->fetch_assoc()) {
@@ -56,33 +58,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Cadastrar">
     </form>
 </div>
-
-<script>
-    // Função para atualizar a lista de locais com base na cidade selecionada
-    function atualizarLocais() {
-        const cidadeSelecionada = document.getElementById('cidade').value;
-        const locais = document.querySelectorAll('#local option');
-        const localContainer = document.getElementById('local-container');
-        
-        // Se uma cidade for selecionada, mostra a seção de locais
-        if (cidadeSelecionada !== "") {
-            localContainer.style.display = "block"; // Exibe o campo de locais
-        } else {
-            localContainer.style.display = "none"; // Esconde o campo de locais
-        }
-
-        // Filtra os locais para exibir apenas os correspondentes à cidade selecionada
-        locais.forEach(function(local) {
-            if (cidadeSelecionada === "" || local.getAttribute('data-cidade') === cidadeSelecionada) {
-                local.style.display = "block"; // Exibe o local
-            } else {
-                local.style.display = "none"; // Esconde o local
-            }
-        });
-
-        // Reseta a seleção do local para o primeiro valor em caso de mudança de cidade
-        document.getElementById('local').value = "";
-    }
-</script>
+</main>
 
 <?php include 'assets/complementos/rodape.php'; ?>

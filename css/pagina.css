@@ -1,54 +1,29 @@
-/* Layout principal */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Reset básico */
-* {
+*{
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fefefe;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    padding-top: 70px;
+    color: #1a1a1a; /* Dark gray for text */
+    background-color: #ffffff; /* White background */
+    position: relative;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fffdf9;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    text-align: center;
-    margin-top: 30px;
-    }
-
-    section {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 20px;
-    }
-
-    section h2 {
-    color: #f47c48;
-    margin-bottom: 15px;
-    }
-
-    section ul {
-    list-style: disc;
-    text-align: left;
-    padding-left: 40px;
-    }
-
-    a {
-    color: #f47c48;
-    text-decoration: none;
-    }
-
-    a:hover {
-    text-decoration: underline;
-    }
- 
+/* Background Video */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.2; /* Slightly reduced opacity for modern look */
+}
